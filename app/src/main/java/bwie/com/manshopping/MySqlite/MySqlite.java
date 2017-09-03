@@ -9,14 +9,14 @@ import android.database.sqlite.SQLiteOpenHelper;
  */
 
 public class MySqlite extends SQLiteOpenHelper {
-    public MySqlite(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
+    public MySqlite(Context context) {
         super(context, "searchRecord.db", null, 1);
     }
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
-        sqLiteDatabase.execSQL("");
+        sqLiteDatabase.execSQL("create table sear(id Integer primary key autoincrement,name varchar(20),label varchar(20)) ");
     }
 
     @Override

@@ -6,6 +6,8 @@ package bwie.com.manshopping.MyUtils;
 
 public interface Api {
     //    http://169.254.85.75/mobile/index.php?act=goods_class
+//    http://169.254.85.75/mobile/index.php?act=goods_class&gc_id=1
+    //http://169.254.85.75/mobile/index.php?act=goods_class&gc_id=1
     public static boolean isOnline = false;
     public static final String PRODUCT = "http://www.baidu.com";
     public static final String DEVELOP = "http://169.254.85.75";
@@ -14,5 +16,7 @@ public interface Api {
 
     public static final String MAIN_PAGE = HOST + "/mobile/index.php?act=index";//首页
     public static final String LINK_MOBILE_CLASS = HOST + "/mobile/index.php?act=goods_class";
+    public static final String TWO = HOST + "/mobile/index.php?act=goods_class&gc_id=";
+    public static final String TWO_2 = HOST + "/mobile/index.php?act=goods_class&gc_id=";
 
 }

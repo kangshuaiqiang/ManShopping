@@ -13,8 +13,6 @@ import com.zhy.http.okhttp.callback.StringCallback;
 import java.util.Map;
 
 import bwie.com.manshopping.MyBean.Basebean;
-import bwie.com.manshopping.MyBean.LeftBean;
-import bwie.com.manshopping.Myfragment.MyClassify;
 
 /**
  * Created by peng on 2017/9/1.

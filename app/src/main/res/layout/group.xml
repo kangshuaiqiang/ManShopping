@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="30dp"
+    android:orientation="horizontal">
+
+    <TextView
+        android:layout_width="4dp"
+        android:layout_height="match_parent"
+        android:background="#ff5001" />
+
+    <TextView
+        android:id="@+id/groupTextView"
+        android:layout_margin="3dp"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:hint="默认内容" />
+
+</LinearLayout>

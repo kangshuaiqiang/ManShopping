@@ -47,6 +47,8 @@
                 android:text="宝贝" />
 
             <EditText
+                android:layout_margin="5dp"
+                android:background="@null"
                 android:id="@+id/editsearch"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

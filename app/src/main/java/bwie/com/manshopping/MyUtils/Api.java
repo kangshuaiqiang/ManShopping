@@ -19,4 +19,11 @@ public interface Api {
     public static final String TWO = HOST + "/mobile/index.php?act=goods_class&gc_id=";
     public static final String TWO_2 = HOST + "/mobile/index.php?act=goods_class&gc_id=";
 
+    //    LINK_MOBILE_GOODS_SEARCH =http://169.254.85.75/mobile/index.php?act=goods&op=goods_list&page=100
+//    public static final String SHOPPUNGLIST = HOST + "/mobile/index.php?act=goods&op=goods_list&page=100 ";
+    //    http://169.254.85.75/mobile/index.php?act=goods&op=goods_list&page=100&gc_id=540
+    public static final String SHOPPINGLIST = HOST + "/mobile/index.php?act=goods&op=goods_list&page=100&gc_id=";
+    //    http://169.254.85.75/mobile/index.php?act=goods&op=goods_detail&goods_id=100009
+    public static final String DETAIL = HOST + "/mobile/index.php?act=goods&op=goods_detail&goods_id=";
+
 }

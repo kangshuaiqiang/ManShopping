@@ -1,16 +1,20 @@
 package bwie.com.manshopping.MyAdapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.GridView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import bwie.com.manshopping.MyActivity.ShoppingList;
 import bwie.com.manshopping.MyBean.Two_1;
 import bwie.com.manshopping.MyBean.Two_2;
 import bwie.com.manshopping.R;
@@ -67,9 +71,11 @@ public class MyRightAdapter extends BaseExpandableListAdapter {
 
     @Override
     public View getGroupView(int i, boolean b, View view, ViewGroup viewGroup) {
+
         View v = View.inflate(context, R.layout.group, null);
         TextView textView = v.findViewById(R.id.groupTextView);
         textView.setText(group.get(i).getGc_name());
+//        v.setClickable(true);
         return v;
     }
 
@@ -77,11 +83,21 @@ public class MyRightAdapter extends BaseExpandableListAdapter {
     public View getChildView(int i, int i1, boolean b, View view, ViewGroup viewGroup) {
         View v = View.inflate(context, R.layout.child, null);
         GridView gridView = v.findViewById(R.id.child_gridView);
-        List<Two_2.DatasBean.ClassListBean> classListBeen = child.get(i);
+        final List<Two_2.DatasBean.ClassListBean> classListBeen = child.get(i);
 
 //        child.get(i).get(i1);
 
         gridView.setAdapter(new MyGridAdapter(context, classListBeen));
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(context, ShoppingList.class);
+                Two_2.DatasBean.ClassListBean classListBean = classListBeen.get(i);
+                String gc_id1 = classListBean.getGc_id();
+                intent.putExtra("gc_id", gc_id1);
+                context.startActivity(intent);
+            }
+        });
         return v;
     }
 

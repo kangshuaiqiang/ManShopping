@@ -4,10 +4,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <GridView
+    <bwie.com.manshopping.MyUtils.MyGridView
         android:id="@+id/child_gridView"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:numColumns="3"></GridView>
+        android:layout_height="wrap_content"
+        android:numColumns="3"></bwie.com.manshopping.MyUtils.MyGridView>
 
 </RelativeLayout>

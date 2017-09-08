@@ -25,5 +25,6 @@ public interface Api {
     public static final String SHOPPINGLIST = HOST + "/mobile/index.php?act=goods&op=goods_list&page=100&gc_id=";
     //    http://169.254.85.75/mobile/index.php?act=goods&op=goods_detail&goods_id=100009
     public static final String DETAIL = HOST + "/mobile/index.php?act=goods&op=goods_detail&goods_id=";
+    //    http://169.254.85.75/mobile/index.php?act=goods&op=goods_detail&goods_id=100009
 
 }

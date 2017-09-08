@@ -60,6 +60,7 @@
                 android:orientation="vertical">
 
                 <android.support.v4.view.ViewPager
+                    android:id="@+id/viewPager"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"></android.support.v4.view.ViewPager>
 
@@ -69,13 +70,33 @@
                     android:layout_margin="5dp"
                     android:orientation="vertical">
 
-                    <TextView
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:text="默认内容"
-                        android:textSize="15dp"
-                        android:textStyle="bold" />
+                        android:background="#ffff"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/goods_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:text="详情介绍"
+                            android:textSize="15dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/goods_jingle"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2"
+                            android:gravity="center_vertical"
+                            android:text="默认内容" />
+
+                    </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -84,6 +105,7 @@
                         android:orientation="horizontal">
 
                         <TextView
+                            android:id="@+id/goods_price"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
@@ -99,6 +121,7 @@
                             android:text="销量：" />
 
                         <TextView
+                            android:id="@+id/goods_salenum"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:gravity="center_vertical"
@@ -327,9 +350,10 @@
 
             </LinearLayout>
 
-            <ListView
+            <bwie.com.manshopping.MyActivity.MyListView
+                android:id="@+id/detaListView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"></ListView>
+                android:layout_height="match_parent"></bwie.com.manshopping.MyActivity.MyListView>
 
 
         </LinearLayout>

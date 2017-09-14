@@ -363,13 +363,13 @@
     <!---->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="60dp"
         android:background="#ffff"
         android:orientation="horizontal">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="60dp"
             android:layout_weight="2"
             android:orientation="horizontal">
 
@@ -417,12 +417,13 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="60dp"
             android:layout_weight="1"
             android:background="#5dca19"
             android:orientation="horizontal">
 
             <LinearLayout
+                android:id="@+id/addShoppingCard"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"

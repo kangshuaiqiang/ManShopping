@@ -1,6 +1,7 @@
 package bwie.com.manshopping.MyUtils;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 
@@ -114,7 +115,10 @@ public class HttpUtil {
             Basebean basebean = (Basebean) gson.fromJson(response, clazz);
             if (basebean.getCode().equals("400")) {
                 //提示错误信息
-                showErrorInfo(context);
+//                showErrorInfo(context);
+                if (onNetListener != null) {
+                    onNetListener.onSuccess(basebean);
+                }
             } else {
                 //返回正确结果
                 if (onNetListener != null) {
@@ -131,6 +135,5 @@ public class HttpUtil {
         builder.setNegativeButton("取消", null);
         builder.show();
     }
-
 
 }

@@ -24,7 +24,9 @@
         <activity android:name=".MyActivity.MyHome" />
         <activity android:name=".Myfragment.MyPager2" />
         <activity android:name=".MyActivity.ShoppingList" />
-        <activity android:name=".MyActivity.MyDetail"></activity>
+        <activity android:name=".MyActivity.MyDetail" />
+        <activity android:name=".MyActivity.MyLogin" />
+        <activity android:name=".MyActivity.MyRegister"></activity>
     </application>
 
 </manifest>

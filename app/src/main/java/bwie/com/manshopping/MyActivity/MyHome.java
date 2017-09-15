@@ -32,8 +32,8 @@ public class MyHome extends AppCompatActivity {
         frag.add(new MyClassify());
         frag.add(new MyShoppingCart());
         frag.add(new MyPerson());
-        getSupportFragmentManager().beginTransaction().replace(R.id.frageLayout, frag.get(0)).commit();
 
+        getSupportFragmentManager().beginTransaction().replace(R.id.frageLayout, frag.get(0)).commit();
 
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override

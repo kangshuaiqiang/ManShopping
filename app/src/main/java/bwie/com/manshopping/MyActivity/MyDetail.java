@@ -80,7 +80,7 @@ public class MyDetail extends BaseActivity_2 {
     }
 
     private void initPopWindow(View view) {
-        MyPop takePhotoPopWin = new MyPop(this, goods_info);
+        MyPop takePhotoPopWin = new MyPop(this, goods_info, myApp);
 //        设置Popupwindow显示位置（从底部弹出）
         takePhotoPopWin.showAtLocation(findViewById(R.id.addShoppingCard), Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, 0);
 

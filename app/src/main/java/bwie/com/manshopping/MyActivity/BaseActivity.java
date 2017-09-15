@@ -24,4 +24,5 @@ public class BaseActivity extends Fragment {
         myApp = (MyApp) getActivity().getApplication();
         httpUtil = myApp.getHttpUtil();
     }
+
 }

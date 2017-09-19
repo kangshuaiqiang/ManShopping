@@ -84,6 +84,8 @@ public class MyShoopingCard_Adapter extends BaseAdapter {
                 Shooping shooping = shoopings.get(i);
                 shooping.setCount(count);
                 dbManager.updateUser(shooping);
+				
+				
                 notifyDataSetChanged();
                 myViewHolder.shoopingcardCount2.setText(shoopings.get(i).getCount() + "");
                 if (shoopings.get(i).getIsNet()) {

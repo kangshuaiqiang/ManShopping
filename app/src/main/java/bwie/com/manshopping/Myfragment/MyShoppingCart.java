@@ -26,7 +26,7 @@ import bwie.com.manshopping.R;
  * Created by 黑白 on 2017/8/31.
  */
 
-public class MyShoppingCart extends BaseActivity implements View.OnClickListener, MyShoopingCard_Adapter.GetPriceFalse, MyShoopingCard_Adapter.GetPriceTrue, MyShoopingCard_Adapter.GetAdd, MyShoopingCard_Adapter.GetMinus, MyShoopingCard_Adapter.SetIsCheck {
+public class MyShoppingCart extends BaseActivity implements MyShoopingCard_Adapter.GetPriceFalse, MyShoopingCard_Adapter.GetPriceTrue, MyShoopingCard_Adapter.GetAdd, MyShoopingCard_Adapter.GetMinus, MyShoopingCard_Adapter.SetIsCheck {
 
 
     private View view;
@@ -56,7 +56,9 @@ public class MyShoppingCart extends BaseActivity implements View.OnClickListener
         View view = View.inflate(getActivity(), R.layout.shoppingcard, null);
         dbManager = myApp.getDbManager();
         countManager = myApp.getCountManager();
+        shoopings = dbManager.queryUserList();
         initView(view);
+
         return view;
     }
 
@@ -64,12 +66,11 @@ public class MyShoppingCart extends BaseActivity implements View.OnClickListener
     private void initView(View view) {
         mShoppingCardlistView = (ListView) view.findViewById(R.id.shoppingCardlistView);
         mQuanxuan = (CheckBox) view.findViewById(R.id.quanxuan);
-        mQuanxuan.setOnClickListener(this);
+
         mCount = (TextView) view.findViewById(R.id.count);
         mCountPrice = (TextView) view.findViewById(R.id.countPrice);
+//        shoopings.clear();
 
-        shoopings.clear();
-        shoopings = dbManager.queryUserList();
         myShoopingCard_adapter = new MyShoopingCard_Adapter(shoopings, getActivity(), dbManager);
         mShoppingCardlistView.setAdapter(myShoopingCard_adapter);
         myShoopingCard_adapter.initPriceFalse(MyShoppingCart.this);
@@ -111,14 +112,6 @@ public class MyShoppingCart extends BaseActivity implements View.OnClickListener
 
         myShoopingCard_adapter.notifyDataSetChanged();
 
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.quanxuan:
-                break;
-        }
     }
 
     @Override
@@ -168,8 +161,34 @@ public class MyShoppingCart extends BaseActivity implements View.OnClickListener
     }
 
     @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        initCheckBox_start();
+    }
+
+    @Override
     public void onStart() {
         super.onStart();
+        initCount_Price_start();
+
+    }
+
+    private void initCheckBox_start() {
+
+        if (shoopings.size() > 0) {
+            for (int i = 0; i < shoopings.size(); i++) {
+                Shooping shooping = shoopings.get(i);
+                if (!shooping.getIsNet()) {
+                    mQuanxuan.setChecked(false);
+                    return;
+                }
+            }
+            mQuanxuan.setChecked(true);
+        }
+
+    }
+
+    private void initCount_Price_start() {
         List<Count_Price> count_prices = countManager.queryUserList();
         if (count_prices.size() == 0) {
             return;

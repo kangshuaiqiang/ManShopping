@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.EditText;
@@ -19,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -27,6 +29,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import bwie.com.manshopping.MyActivity.MainActivity;
+import bwie.com.manshopping.MyActivity.ShoppingList;
 import bwie.com.manshopping.MySqlite.MySqlite;
 import bwie.com.manshopping.R;
 
@@ -48,6 +51,13 @@ public class MyPager2 extends AppCompatActivity {
 
         MySqlite mySqlite = new MySqlite(this);
         listView = (ListView) findViewById(R.id.listView);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(MyPager2.this, ShoppingList.class);
+                startActivity(intent);
+            }
+        });
         writableDatabase = mySqlite.getWritableDatabase();
         initSqLite();
         ImageView search = (ImageView) findViewById(R.id.search);
@@ -79,12 +89,14 @@ public class MyPager2 extends AppCompatActivity {
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!TextUtils.isEmpty(textView.getText())) {
+                if (!TextUtils.isEmpty(editText.getText().toString())) {
                     ContentValues contentValues = new ContentValues();
                     contentValues.put("name", editText.getText().toString());
                     contentValues.put("label", textView.getText().toString());
                     writableDatabase.insert("sear", null, contentValues);
                     initSqLite();
+                } else {
+                    Toast.makeText(MyPager2.this, "输入框不能为空", Toast.LENGTH_SHORT).show();
                 }
             }
         });
